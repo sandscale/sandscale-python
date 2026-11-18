@@ -1,0 +1,54 @@
+# Copyright 2026 Neural Inverse
+# SPDX-License-Identifier: Apache-2.0
+
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sandscale"
+version = "1.0.0"
+description = "Sandscale Python SDK: sandboxes, workspaces and build hosts over the Sandscale API"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Neural Inverse" }]
+requires-python = ">=3.10"
+dependencies = [
+    "httpx>=0.24",
+]
+keywords = ["sandscale", "sandbox", "ai", "agents", "code-execution"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/sandscale/sandscale-python#readme"
+Issues = "https://github.com/sandscale/sandscale-python/issues"
+Source = "https://github.com/sandscale/sandscale-python"
+Changelog = "https://github.com/sandscale/sandscale-python/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "mypy>=1.13",
+    "build>=1.2",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sandscale"]
+
+[tool.hatch.build.targets.sdist]
+# The sdist carries only what the wheel is built from, so the two stay
+# reproducible from the tagged tree (SOURCE_DATE_EPOCH fixes timestamps).
+include = ["src/sandscale", "tests", "README.md", "LICENSE", "pyproject.toml"]
+exclude = ["**/__pycache__"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+strict = true
