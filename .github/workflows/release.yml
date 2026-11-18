@@ -1,3 +1,6 @@
+# Copyright 2026 Neural Inverse
+# SPDX-License-Identifier: Apache-2.0
+
 # Publishes sandscale to PyPI when a v* tag is pushed, through PyPI trusted publishing (OIDC):
 # no PyPI token is stored anywhere. PyPI trusts this repository, this workflow file (release.yml)
 # and the environment `pypi`. Attestations (PEP 740) are attached automatically.

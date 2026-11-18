@@ -1,3 +1,6 @@
+<!-- Copyright 2026 Neural Inverse -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
 # Changelog
 
 ## 1.0.0 - 2026-11-18
